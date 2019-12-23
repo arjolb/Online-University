@@ -1,0 +1,886 @@
+.flexbox .content{
+    @include atMedium{
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    &__info{
+        flex-basis: 63%;
+        border: 1px solid rgb(235, 235, 235);
+        padding: 6px 10px 0px 10px;
+
+        &--subjects{
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+
+            &__subject{
+                flex-basis: 48%;
+            }
+        }
+    }
+
+    &__sidebar{
+        flex-basis: 33%;
+
+        &--upcoming-events{
+            
+            &-content{
+                &__lecture{
+                    display: flex;
+    
+                    &--date{
+                        flex: 1;
+                    }
+        
+                    &--text{
+                        flex: 4;
+                    }
+                }
+            }
+
+        }
+
+    }
+
+}
+
+
+.content{
+    margin-top: 20px;
+    
+    &__info{
+
+        &--hero{
+            position: relative;
+
+            &__img{
+                display: block;
+            }
+            
+            &__text{
+                position: absolute;
+                bottom: 0;
+                background: rgba(2, 2, 32, 0.6);
+                color: #fff;
+                width: 100%;
+                padding: 8px 0 8px 6px;
+
+                h3{
+                    font-size: 20px;
+                }
+
+                h6{
+                    margin-top: 6px;
+                    font-weight: normal;
+                    font-size: 14px;
+                }
+            }
+        }
+
+        &--subjects{
+            padding-top: 20px;
+
+            &__subject{
+                padding-bottom: 40px;
+
+                h1,h2{
+                    // font-weight: 900;
+                }
+
+                a{
+                    font-size: 16px;
+                    line-height: 1.6;
+                    color: #33689a;
+                }
+            }
+        }
+
+        //Lectures
+        &--lectures{
+            &__header{
+                color: #33669b;
+                padding-top: 14px;
+                padding-bottom: 20px;
+                border-bottom: 1px dotted #999;
+
+                &.not-found{
+                    color: #111;
+                }
+
+                &.subject{
+                    border-bottom: 1px solid #999;
+
+                    span{
+                        font-size: 12px;
+                        color: #000;
+
+                        @include atMedium{
+                            font-size: 16px;
+                        }
+
+                        a{
+                            font-size: 12px;
+                            color: #33689a;
+                            font-weight: 900;
+
+                            &:nth-child(3){
+                                padding-left: 6px;
+                            }
+
+                            @include atMedium{
+                                font-size: 16px;
+                            }
+                        }
+
+                        &:nth-child(2){
+                            padding-left: 20px;
+                        }
+                    }
+                }
+            }
+
+            &__content{
+                padding: 20px 0;
+                
+                &--chapter{
+                    font-size: 22px;
+                    color: #333;
+                    
+                    &.subject{
+                        border-top: 1px dotted #999;
+                        padding-top: 20px;
+
+                        &:first-child{
+                            border-top: none;
+                        }
+                    }
+                }
+
+                &--professors-date{
+                    padding-top: 3px;
+                    font-size: 11px;
+
+                    a{
+                        color: #33689a;
+                        &:nth-child(2){
+                            &::before{
+                                content: ", ";
+                            }
+                        }
+                    }
+
+                    &__separator{
+                        padding: 0 4px;
+                    }
+                }
+
+                &--loop{
+                    padding-top: 20px;
+                    // display: flex;
+                    justify-content: space-between;
+
+                    &__description-permalink{
+                        @include clearfix;
+
+                        p{
+                            font-size: 12px;
+                            line-height: 1.6;
+                            padding: 10px 0;
+                        }
+
+                        span{
+                            font-size: 12px;
+
+                            a{
+                                color: #33689a;
+                            }
+                        }
+                        
+                        .archive{
+                            display: inline-block;
+                            margin-top: 10px;
+                            padding: 8px;
+                            background: #1b3280;
+                            color: #fff;
+                            font-size: 12px;
+                            text-transform: uppercase;
+                            font-weight: 800;
+                            word-spacing: 2px;
+                            border: 1px solid #336699;
+                            border-radius: 3px;
+
+                            &:hover{
+                                background: #111;
+                                border-color: #111;
+                            }
+                        }
+
+                        .prev-next{
+                            @include clearfix;
+                            padding: 10px 0;
+
+                            >div{
+                                
+                                &:first-child{
+                                    float: left;
+                                }
+
+                                &:nth-child(2){
+                                    float: right;
+                                }
+
+                                a{
+                                    color: #33689a;
+                                }
+                            }
+                        }
+
+                        .single{
+                            display: inline-block;
+                            padding: 10px 0;
+                        }
+                    }
+
+                    &__thumbnail{
+                        // flex-basis: 33%;
+                        img{
+                            border-radius: 6px;
+                        }
+                    }
+                }
+
+                &--single-subject{
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 20px 0;
+
+                    .thumbnail{
+                        flex-basis: 30%;
+                    }
+
+                    .title-permalink{
+                        flex-basis: 68%;
+
+                        h5{
+                            font-size: 16px;
+                        }
+
+                        a{
+                            display: block;
+                            color: #33689a;
+                            padding-top: 6px;
+                            line-height: 1.4;
+                        }
+                    }
+                }
+
+                .lectures-count{
+                    display: none;
+                }
+
+                &--subject{
+                    border-bottom: 1px dotted #999;
+                }
+            }
+
+            &__pagination{
+                display: block;
+                margin: auto;
+                text-align: center;
+                padding-bottom: 20px;
+
+                .page-numbers{
+                    padding: 8px 12px;
+                    color: #1b3280;
+
+                    &.current{
+                        background: #1b3280;
+                        color: #fff;
+                        border-radius: 50%;
+                    }
+
+                    &:not(.current){
+                        &:hover{
+                            background: #f0f0f0;
+                            border-radius: 50%;
+                        }
+                    }
+                }
+            }
+        }
+
+        &--not-found{
+            padding: 20px 0;
+            line-height: 1.4;
+
+            &__links{
+                padding: 0 0 20px 0;
+                a{
+                    display: block;
+                    line-height: 1.6;
+                }
+            }
+        }
+
+        &--archive-subjects{
+            padding: 20px 0;
+
+            &__header{
+                font-size: 22px;
+            }
+
+            p{
+                padding-top: 10px;
+            }
+        }
+    
+        &--professor{
+            padding: 20px 0;
+            display: flex;
+            justify-content: space-between;
+
+            .thumbnail{
+                flex-basis: 30%;
+
+                img{
+                    // border-radius: 50%;
+                }
+            }
+
+            .bio{
+                flex-basis: 68%;
+                
+                p{
+                    padding-bottom: 10px;
+                    font-size: 12px;
+                }
+            }
+
+            &__subjects{
+                padding-bottom: 20px;
+                @include clearfix;
+
+                h4{
+                    a{
+                        color: #33689a;
+                        
+                        &::after{
+                            content: ", ";
+                        }
+
+                        &:last-child{
+                            &::after{
+                                content: "";
+                            }
+                        }
+                    }
+                }
+
+                .like-professor{
+                    cursor: pointer;
+                    background: #f0f0f0;
+                    padding: 6px;
+                    color: #d41b1b;
+                    position: relative;
+
+                    .fa-heart{
+                        position: absolute;
+                        top: 50%;
+                        transform: translateY(-50%);
+
+                        &.fa{
+                            transform: scale(.2);
+                            visibility: hidden;
+                            opacity: 0;
+                            transition: all .2s;
+                        }
+                    }
+
+                    &-count{
+                        padding-left: 20px;
+                    }
+                }
+
+                .like-professor[data-liked="yes"]{
+                    .fa-heart{
+                        &.fa{
+                            transform: scale(1);
+                            visibility: visible;
+                            opacity: 1;
+                            top: auto;
+                            transform: translateY(auto);
+                        }
+                    }
+                }
+
+                >div{
+                    float: left;
+
+                    &:nth-child(1){
+                        width: 83.332%;
+                    }
+
+                    &::nth-child(2){
+                        width: 16.662%;
+                    }
+                }
+            }
+        }
+    
+        &--notes{
+            padding: 20px 0;
+
+            &--add{
+                background: #d8d8d8;
+                margin-bottom: 20px;
+                padding: 10px;
+
+                h2{
+                    font-weight: normal;
+                }
+
+                input,textarea{
+                    display: block;
+                    width: 100%;
+                    outline: none;
+                    border: none;
+                    margin-top: 6px;
+                    padding: 6px;
+                    font-size: 14px;
+                }
+
+                textarea{
+                    height: 150px;
+                    resize: none;
+                }
+
+                .create-note{
+                    background: #af0101;
+                    color: #fff;
+                    display: inline-block;
+                    padding: 8px;
+                    margin: 10px 0;
+                    cursor: pointer;
+                }
+
+                .note-limit{
+                    color: #af0101;
+                    visibility: hidden;
+                    opacity: 0;
+                    transition: all .2s;
+
+                    &.active{
+                        visibility: visible;
+                        opacity: 1;
+                    }
+                }
+            }
+
+            &__content{
+                margin-top: 40px;
+
+                input{
+                    width: 60%;
+                    margin-right: 30px;
+                    border: none;
+                    outline: none;
+                    padding: 10px 6px;
+                    font-size: 14px;
+                    text-transform: capitalize;
+                }
+
+                .edit-note,.delete-note{
+                    padding: 6px;
+                    background-color: #e9e9e9;
+                    cursor: pointer;
+                }
+
+                .delete-note{
+                    color: #af0101;
+                }
+
+                textarea{
+                    display: block;
+                    margin: 20px 0;
+                    width: 100%;
+                    height: 150px;
+                    outline: none;
+                    border: none;
+                    border-radius: 4px;
+                    resize: none;
+                    padding: 10px 6px;
+                }
+
+                .update-note{
+                    background: #1b3280;
+                    border: 1px solid#336699;
+                    border-radius: 3px;
+                    color: #fff;
+                    padding: 8px;
+                    cursor: pointer;
+                    display: none;
+
+                    &.active{
+                        display: inline-block;
+                    }
+                }
+
+                input,textarea{
+                    &.editable{
+                        border: 1px solid #999999;
+                    }
+                }
+            }
+        }
+
+        &--page-post{
+            &__header{
+                padding: 20px 0;
+                border-bottom: 1px dotted #999999;
+
+                span{
+                    color: #33689a;
+                    display: block;
+                    font-size: 12px;
+                    padding-top: 4px;
+
+                    span{
+                        display: inline-block;
+                        color: #000;
+                    }
+                }
+            }
+
+            &__content{
+                padding: 20px 0;
+
+                &--contact{
+                    padding: 0;
+                }
+
+                p{
+                    font-size: 12px;
+                    line-height: 1.6;
+                    padding: 10px 0;
+
+                    &:first-child{
+                        padding-top: 0;
+                    }
+                }
+
+                &--form{
+                    padding: 20px 0;
+
+                    label{
+                        font-weight: 700;
+                    }
+
+                    span{
+                        color: #d41b1b;
+                        font-weight: 900;
+                    }
+
+                    &__name,&__email,&__subject,&__textarea{
+                        padding-bottom: 16px;
+
+                        input,textarea{
+                            display: block;
+                            margin-top: 6px;
+                            border: 1px solid #ccc;
+                            border-radius: 4px;
+                            padding: 10px 0 10px 6px;
+                        }
+
+                        input{
+                            width: 60%;
+                        }
+
+                        textarea{
+                            width: 100%;
+                            resize: none;
+                        }
+                    }
+                }
+            }
+
+            .archive{
+                display: inline-block;
+                margin-bottom: 30px;
+                padding: 8px;
+                background: #1b3280;
+                color: #fff;
+                font-size: 12px;
+                text-transform: uppercase;
+                font-weight: 800;
+                word-spacing: 2px;
+                border: 1px solid #336699;
+                border-radius: 3px;
+
+                &:hover{
+                    background: #111;
+                    border-color: #111;
+                }
+            }
+        }
+
+    }
+
+    &__sidebar{
+        margin-top: 40px;
+
+        @include atMedium{
+            margin-top: 0;
+        }
+
+        &--header{
+            background: #f0f0f0;
+            border-bottom: 1px solid #f0f0f0;
+    
+                h5{
+                    text-transform: capitalize;
+                    font-size: 16px;
+                    color: #5f5f5f;
+                    padding: 10px 0 10px 6px;
+                }
+        }
+
+        &--upcoming-events{
+            border: 1px solid rgb(235, 235, 235);
+
+            &-content{
+                &__month{
+                    // font-weight: 900;
+                    color: #aaa;
+                    text-transform: uppercase;
+                    padding: 8px 0 8px 6px;
+                    display: block;
+                }
+    
+                &__lecture{
+                    &--container{
+                        border-top: 1px solid rgb(235, 235, 235);
+                        border-bottom: 1px solid rgb(235, 235, 235);
+                        border-radius: 10px;
+                        overflow: hidden;
+                    }
+                    
+                    border: 1px solid rgb(235, 235, 235);
+                    padding: 10px 0;
+                    background: #f0f0f086;
+                    cursor: pointer;
+                
+                    &.Algebra{
+                        border-left: 3px solid #940000;
+                        transition: all .2s;
+
+                        &:hover{
+                            border-left: 6px solid #940000;;
+                            background: #d8d8d8;
+                        }
+                    }
+
+                    &.Inorganic{
+                        border-left: 3px solid #609400;
+                        transition: all .2s;
+
+                        &:hover{
+                            border-left: 6px solid #609400;;
+                            background: #d8d8d8;
+                        }
+                    }
+
+                    &.Relativity{
+                        border-left: 3px solid #014e3b;
+                        transition: all .2s;
+
+                        &:hover{
+                            border-left: 6px solid #014e3b;;
+                            background: #d8d8d8;
+                        }
+                    }
+
+                    &.Molecular{
+                        border-left: 3px solid #2c00be;
+                        transition: all .2s;
+
+                        &:hover{
+                            border-left: 6px solid #2c00be;;
+                            background: #d8d8d8;
+                        }
+                    }
+
+                    &.Biotechnology{
+                        border-left: 3px solid #be006f;
+                        transition: all .2s;
+
+                        &:hover{
+                            border-left: 6px solid #be006f;;
+                            background: #d8d8d8;
+                        }
+                    }
+
+                    &.Organic{
+                        border-left: 3px solid #d873db;
+                        transition: all .2s;
+
+                        &:hover{
+                            border-left: 6px solid #d873db;;
+                            background: #d8d8d8;
+                        }
+                    }
+    
+                    &--date{
+                        padding-left: 8px;
+    
+                        h5{
+                            color: #ababab;
+                            font-size: 11px;
+                            font-weight: 900;
+                        }
+                    }
+    
+                    &--text{
+                        padding-right: 8px;
+    
+                        h2,h3{
+                            color: #6b6b6b;
+                            line-height: 1.4;
+                            text-transform: uppercase;
+                        }
+    
+                        h2{
+                            font-size: 14px;
+                        }
+    
+                        h3{
+                            font-weight: 100;
+                            font-size: 12px;
+                        }
+                    }
+                }
+
+                &__extra{
+                    background: #f0f0f0da;
+                    max-height: 0;
+                    opacity: 0;
+                    transition: all .4s ease-out;
+                    pointer-events: none;
+
+                    &.active{
+                        max-height: 300px;
+                        opacity: 1;
+                        z-index: auto;
+                    }
+
+                    h2,h3{
+                        color: #6b6b6b;
+                        line-height: 1.4;
+                        text-transform: uppercase;
+                        padding-left: 11px;
+                    }
+
+                    h2{
+                        font-size: 14px;
+                    }
+
+                    h3{
+                        font-weight: 100;
+                        font-size: 12px;
+                        max-width: 75%;
+                        padding-top: 3px;
+                    }
+
+                    &--day{
+                        padding: 10px 0;
+                        border: 1px solid rgb(235, 235, 235);
+                    }
+
+                    &--chapter{
+                        position: relative;
+                        padding: 10px 0;
+                        
+                        .data{
+                            width: 80%;
+                            
+                        }
+                        
+                        .toggle{
+                            width: 20%;
+                            height: 100%;
+                            position: absolute;
+                            bottom: 0;
+                            right: 0;
+                            background: #e2e2e2;
+                            cursor: pointer;
+                            font-size: 22px;
+                            color: #6b6b6b;
+                            transition: all .2s ease-out;
+                            pointer-events: visible;
+
+                            &:hover{
+                                background: #d8d8d8;
+                            }
+
+                            i{
+                                position: absolute;
+                                top: 50%;
+                                left: 50%;
+                                transform: translate(-50%,-50%);
+                            }
+                              
+                        }
+                    }
+                }
+            }
+        }
+
+        &--blog{
+            margin-top: 20px;
+
+            &__posts{
+                border: 1px solid rgb(235, 235, 235);
+
+                >section{
+                    border-bottom: 1px dotted #999;
+                    padding: 10px 0 10px 10px;
+                    
+                    &:last-child{
+                        border-bottom: none;
+                    }
+      
+                    a{
+                        display: block;
+                        padding-left: 15px;
+                        color: #33689a;
+                        font-size: 14px;
+                        line-height: 1.6;
+                        font-weight: normal;
+                        
+                        i{
+                            border: solid #ababab;
+                            border-width: 0 2px 2px 0;
+                            display: inline-block;
+                            padding: 3px;
+                            margin-right: 5px;
+                        }
+                          
+                        .right{
+                            transform: rotate(-45deg) translateY(-2px);
+                        }
+
+                        &:not(:first-child){
+                            margin-left: 13px;
+                        }
+
+                        &:hover{
+                            color: #222;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+}

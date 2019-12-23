@@ -1,0 +1,202 @@
+.search-overlay{
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.93);
+    visibility: hidden;
+    opacity: 0;
+    transform: scale(1.3);
+    z-index: -100;
+    transition: all .2s;
+
+    &--active{
+        visibility: visible;
+        opacity: 1;
+        transform: scale(1);
+        z-index: 100;
+    }
+
+    &--search-field{
+        background-color: rgba(0, 0, 0, 0.12);
+        padding: 10px 0;
+
+        .fa-search{
+            margin-right: 10px;
+            font-size: 22px;
+            color: #616161;
+        }
+
+        #search-term{
+            padding: 8px 3px;
+            margin: 10px 0;
+            border: none;
+            outline: none;
+            width: 70%;
+            color: #616161;
+            background: transparent;
+        }
+
+        .fa-window-close{
+            position: absolute;
+            top: 10px;
+            right: 6px;
+            cursor: pointer;
+            color: #616161;
+            font-size: 28px;
+
+            @include atMedium{
+                right: 0;
+            }
+        }
+    }
+
+    &--results{
+        &__content{
+            margin-top: 45px;
+
+            h2{
+                padding-bottom: 10px;
+                border-bottom: 1px solid #b3b3b357;
+                font-size: 20px;
+                color: #616161;
+            }
+
+            p{
+                padding: 6px 0;
+                display: block;
+                
+            }
+
+            .blog-posts-subjects{
+                padding-top: 15px;
+
+                a{
+                    font-size: 14px;
+                    font-weight: 700;
+                    color: #616161;
+                    border-bottom: 2px solid #616161;
+                }
+            }
+
+            .lecture{
+                display: flex;
+                // flex-wrap: wrap;
+                padding-top: 15px;
+                align-items: flex-start;
+                justify-content: space-between;
+
+                &-date{
+                    flex-basis: 23%;
+                    color: #fff;
+
+                    >div{
+                        width: 60px;
+                        height: 60px;
+                        background: #33689a;
+                        border-radius: 50%;
+                        margin: auto;
+                        text-align: center;
+                    }
+                    h3{
+                        font-size: 16px;
+                        transform: translateY(50%);
+
+                        &:first-child{
+                            font-weight: normal;
+                        }
+                        &:nth-child(2){
+                            font-weight: 800;
+                        }
+                    }
+                }
+
+                &-content{
+                    flex-basis: 73%;
+
+                    a{
+                        color: #33689a;
+                        border-bottom: 2px solid #33689a;
+                    }
+
+                    p{
+                        line-height: 1.4;
+                    }
+                }
+            }
+
+            .professor{
+                display: block;
+                position: relative;
+                margin-top: 15px;
+                width: 150px;
+                overflow: hidden;
+
+                &:hover{
+                    img{
+                        transform: scale(1.1) rotate(4deg);
+                    }
+                }
+
+                img{
+                    display: block;
+                    transition: all .4s;
+                }
+
+                &-title{
+                    position: absolute;
+                    bottom: 0;
+                    background: #616161;
+                    width: 100%;
+                    color: #fff;
+                    text-align: center;
+                    padding: 9px 0;
+                    opacity: .8;
+                }
+            }
+        }
+    }
+
+    .spinner-loader{
+        margin-top: 45px;
+        border-radius: 50%;
+        width: 24px;
+        height: 24px;
+        border: 0.25rem solid rgba(0, 0, 0, 0.2);
+        border-top-color: black;
+        animation: spin 1s infinite linear;
+    }
+}
+
+.flexbox{
+    .search-overlay{
+        &--results{
+            &__content{
+                display: flex;
+                justify-content: space-between;
+
+                >div{
+                    flex-basis: 23%;
+                }
+            }
+        }
+    }
+}
+
+.body-no-scroll{
+    overflow: hidden;
+}
+
+@keyframes spin {
+    0% {
+      -webkit-transform: rotate(0deg);
+              transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+              transform: rotate(360deg);
+    }
+}
