@@ -3,7 +3,7 @@
         "@babel/core": "^7.7.5",
         "@babel/preset-env": "^7.7.6",
         "babel-loader": "^8.0.6",
-        "browser-sync": "^2.26.7",
+        "browser-sync": "^2.27.10",
         "gulp": "^4.0.2",
         "gulp-autoprefixer": "^7.0.1",
         "gulp-modernizr": "^3.4.0",
